@@ -15,6 +15,9 @@ template<class K, class T>
 class MapT {
 public:
     MapT();
+    ~MapT(){
+        delete []buckets;
+    }
 
     void Add(K key, T value);
     void Remove(K key);
@@ -25,8 +28,9 @@ public:
     void Rehash(int numBuckets);
 
     T operator[](K key);
+    MapT& operator=(MapT const &other);
 
-    int Size() { return numKeys; }
+    int Size(){ return numKeys; }
 
     void ResetIterator();
     pair<K,T> GetNextPair();
@@ -53,7 +57,10 @@ private:
 
 
     int GetHashIndex(const K& key);
+
 };
+
+
 
 
 #include "MapT.cpp"

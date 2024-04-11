@@ -7,7 +7,7 @@
 #include "MapT.h"
 
 int main(void) {
-
+    //int for key, string for value
     MapT<int,string> map;
 
     map.Add(95381, "Turlock");
